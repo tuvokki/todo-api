@@ -1,4 +1,5 @@
 #!flask/bin/python
+import json
 from flask import Flask, jsonify, abort, make_response, request, url_for
 from flask.ext.httpauth import HTTPBasicAuth
 
@@ -47,6 +48,12 @@ def make_public_task(task):
 @app.errorhandler(404)
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
+
+@app.route('/rest/<int:jira_id>', methods=['POST'])
+def dump_info():
+    print "Received JIRA id: " + jira_id
+    print json.dumps(request.json, indent=4, sort_keys=True)
+    return jsonify({'task': ''}), 201
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 def create_task():
