@@ -50,7 +50,7 @@ def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 @app.route('/rest/<int:jira_id>', methods=['POST'])
-def dump_info():
+def dump_info(jira_id):
     print "Received JIRA id: " + jira_id
     print json.dumps(request.json, indent=4, sort_keys=True)
     return jsonify({'task': ''}), 201
