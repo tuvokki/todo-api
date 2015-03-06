@@ -49,7 +49,7 @@ def make_public_task(task):
 def not_found(error):
     return make_response(jsonify({'error': 'Not found'}), 404)
 
-@app.route('/rest/<int:jira_id>', methods=['POST'])
+@app.route('/rest/<string:jira_id>', methods=['POST'])
 def dump_info(jira_id):
     print "This is a test, smile"
     print "Received JIRA id: ", jira_id
