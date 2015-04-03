@@ -18,6 +18,12 @@ tasks = [
         'title': u'Learn Python',
         'description': u'Need to find a good Python tutorial on the web',
         'done': False
+    },
+    {
+        'id': 3,
+        'title': u'Walk the dog',
+        'description': u'In order to keep the beast a little sane, walk it',
+        'done': False
     }
 ]
 
