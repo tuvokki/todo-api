@@ -10,13 +10,13 @@ tasks = [
     {
         'id': 1,
         'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
+        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
         'done': False
     },
     {
         'id': 2,
         'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web', 
+        'description': u'Need to find a good Python tutorial on the web',
         'done': False
     }
 ]
@@ -51,7 +51,6 @@ def not_found(error):
 
 @app.route('/rest/<string:jira_id>', methods=['POST'])
 def dump_info(jira_id):
-    print "This is a test, smile " + request.args.get('user_key')
     print "Received JIRA id: ", jira_id
     print json.dumps(request.json, indent=4, sort_keys=True)
     return jsonify({'task': ''}), 201
@@ -112,4 +111,4 @@ def index():
     return "This is the tdo-rest-api."
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5050)
