@@ -52,8 +52,14 @@ def not_found(error):
 @app.route('/rest/<string:jira_id>', methods=['POST'])
 def dump_info(jira_id):
     print "Received JIRA id: ", jira_id
-    print json.dumps(request.json, indent=4, sort_keys=True)
-    return jsonify({'task': ''}), 201
+    task = {
+        'id': jira_id,
+        'title': 'Dummy title',
+        'description': 'Dummy description',
+        'done': False
+    }
+    #print json.dumps(request.json, indent=4, sort_keys=True)
+    return jsonify({'task': task}), 201
 
 @app.route('/todo/api/v1.0/tasks', methods=['POST'])
 def create_task():
